@@ -51,19 +51,19 @@ runs:
         if [ ${{ inputs.release }} = "true" ]; then
 
           if [ ${{ inputs.build-type }} = "apk" ] || [ ${{ inputs.build-type }} = "both" ]; then
-            flutter build apk || true
+            flutter build apk --no-tree-shake-icons || true
           fi
           if [ ${{ inputs.build-type }} = "aab" ] || [ ${{ inputs.build-type }} = "both" ]; then
-            flutter build appbundle || true
+            flutter build appbundle --no-tree-shake-icons || true
           fi
 
         else
 
           if [ ${{ inputs.build-type }} = "apk" ] || [ ${{ inputs.build-type }} = "both" ]; then
-            flutter build apk --debug || true
+            flutter build apk --debug --no-tree-shake-icons|| true
           fi
           if [ ${{ inputs.build-type }} = "aab" ] || [ ${{ inputs.build-type }} = "both" ]; then
-            flutter build appbundle --debug || true
+            flutter build appbundle --debug --no-tree-shake-icons || true
           fi
         fi
       shell: bash
